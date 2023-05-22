@@ -2,7 +2,7 @@
 - name: Update Packages on Ubuntu
   hosts: servers
   remote_user: ansible
-  become: true
+  become: true 
 
   tasks:
     - name: Wait for package manager
