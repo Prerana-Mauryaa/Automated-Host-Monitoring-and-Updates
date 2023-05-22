@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage("SCM checkout"){
+            steps{
+                git 'https://github.com/Prerana-Mauryaa/Ansible-Integration'
+            }
+        }
+        stage("Execute Ansible"){
+            steps{
+                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'new.yml'
+            }
+        }
+    }
+}
